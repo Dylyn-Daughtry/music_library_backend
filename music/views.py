@@ -7,7 +7,7 @@ from rest_framework import status
 
 
 
-api_view(['GET', 'POST'])
+@api_view(['GET', 'POST'])
 def songs_list(request):
 
     if request.method == 'GET':
@@ -23,9 +23,9 @@ def songs_list(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def song_detail(request, pk):
-    song = get_object_or_404(song, pk=pk)
+    song = get_object_or_404(Song, pk=pk)
     if request.method == 'GET':
-        serializer = SongSerializer(Song)
+        serializer = SongSerializer(song)
         return Response(serializer.data)
     if request.method == 'PUT':
         serializer = SongSerializer(song, data=request.data)

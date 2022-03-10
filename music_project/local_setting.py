@@ -3,10 +3,14 @@ SECRET_KEY = 'django-insecure-c(3p%3jm2_fdg@kp^qy@pqa&n01tx*26zs8tzcl+@7w)hc7t!5
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'music_database',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'Daughtry'
+        'PASSWORD': 'Daughtry',
+        'OPTIONS': {
+            'autocommit': True
+        }
     }
 }
